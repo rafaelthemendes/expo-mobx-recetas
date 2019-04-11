@@ -62,7 +62,7 @@ const style = {
     fontStyle: 'normal',
     lineHeight: 24,
     letterSpacing: 0.5,
-    color: colors.white
+    color: colors.whiteFull
   },
   labelButton: {
     fontFamily: family.bold,
