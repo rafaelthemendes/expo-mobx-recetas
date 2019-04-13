@@ -1,6 +1,6 @@
 import React from 'react';
 import { registerRootComponent, Font } from 'expo';
-import App from './pages/App';
+import App from './App';
 import './config/StatusBarConfig';
 
 class AppContainer extends React.Component {
