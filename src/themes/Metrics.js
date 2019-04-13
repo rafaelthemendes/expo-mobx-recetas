@@ -1,5 +1,17 @@
+import { Dimensions, Platform } from 'react-native';
+
+function isIphoneXorAbove() {
+  const dimen = Dimensions.get('window');
+  return (
+    Platform.OS === 'ios' &&
+    !Platform.isPad &&
+    !Platform.isTVOS &&
+    (dimen.height === 812 || dimen.width === 812 || (dimen.height === 896 || dimen.width === 896))
+  );
+}
+
 export default {
-  statusBarHeight: 20,
+  statusBarHeight: isIphoneXorAbove() ? 40 : 20,
   navBarHeight: 56,
   tabBarHeight: 56,
   buttonSize: 60,
