@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import Image from './Image';
+import ImageFadeIn from './ImageFadeIn';
 import styles from './Styles/RecipeRowStyles';
 
 class RecipeRow extends React.Component {
@@ -9,7 +9,7 @@ class RecipeRow extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.imageContainer}>
-          <Image style={{ flex: 1 }} resizeMode="cover" source={{ uri: data.photo }} />
+          <ImageFadeIn style={{ flex: 1 }} resizeMode="cover" source={{ uri: data.photo }} />
         </View>
         <View style={styles.infoContainer} />
       </View>
