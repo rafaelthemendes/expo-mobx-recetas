@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-// import ImageFadeIn from './ImageFadeIn';
+import { View, Text, TouchableOpacity } from 'react-native';
 import ImageLoading from './ImageLoading';
 import Icon from './Icon';
 import styles from './Styles/RecipeRowStyles';
@@ -30,14 +29,14 @@ class RecipeRow extends React.Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, onPress } = this.props;
     return (
-      <View style={styles.container}>
+      <TouchableOpacity style={styles.container} onPress={() => onPress(data)}>
         <View style={styles.imageContainer}>
-          <ImageLoading style={styles.recipeImage} resizeMode="cover" source={{ uri: data.photo }} />
+          <ImageLoading style={styles.recipeImage} resizeMode="cover" source={{ uri: data.photo || 'default' }} />
         </View>
         {this.renderInfoContainer(data)}
-      </View>
+      </TouchableOpacity>
     );
   }
 }
