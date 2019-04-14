@@ -1,7 +1,7 @@
 import colors from './Colors';
 
 const family = {
-  base: 'Montserrat-Regular',
+  base: 'Montserrat-SemiBold',
   bold: 'ProximaNova-Bold'
 };
 

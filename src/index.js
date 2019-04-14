@@ -11,7 +11,7 @@ class AppContainer extends React.Component {
   async componentDidMount() {
     await Font.loadAsync({
       'ProximaNova-Bold': require('../assets/fonts/ProximaNova-Bold.ttf'),
-      'Montserrat-Regular': require('../assets/fonts/Montserrat-Regular.ttf'),
+      'Montserrat-SemiBold': require('../assets/fonts/Montserrat-SemiBold.ttf'),
       Icons: require('../assets/fonts/icons.ttf')
     });
     this.setState({ fontLoaded: true });
