@@ -1,5 +1,5 @@
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import { GenericScreen, ExploreScreen, CategoriesScreen } from '../pages';
+import { GenericScreen, ExploreScreen, CategoriesScreen, RecipeDetailsScreen } from '../pages';
 
 const TabNavigator = createBottomTabNavigator(
   {
@@ -17,7 +17,8 @@ const TabNavigator = createBottomTabNavigator(
 
 const AppNavigator = createStackNavigator(
   {
-    Home: { screen: TabNavigator }
+    Home: { screen: TabNavigator },
+    RecipeDetails: { screen: RecipeDetailsScreen }
   },
   { headerMode: 'none' }
 );
