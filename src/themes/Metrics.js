@@ -17,6 +17,7 @@ export default {
   buttonSize: 60,
   baseSpace: 16,
   smallSpace: 8,
+  tinySpace: 4,
   buttonRadius: 24,
   borderRadius: 4,
   icons: {

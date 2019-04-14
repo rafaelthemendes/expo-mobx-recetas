@@ -1,12 +1,19 @@
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import { GenericScreen } from '../pages';
-import ExploreScreen from '../pages/ExploreScreen';
+import { GenericScreen, ExploreScreen, CategoriesScreen } from '../pages';
 
-const TabNavigator = createBottomTabNavigator({
-  Explore: { screen: ExploreScreen },
-  Categories: { screen: GenericScreen },
-  Favorites: { screen: GenericScreen }
-});
+const TabNavigator = createBottomTabNavigator(
+  {
+    Categories: { screen: CategoriesScreen },
+    Explore: { screen: ExploreScreen },
+    Favorites: { screen: GenericScreen }
+  },
+  {
+    initialRouteName: 'Explore',
+    navigationOptions: {
+      tabBarVisible: false
+    }
+  }
+);
 
 const AppNavigator = createStackNavigator(
   {

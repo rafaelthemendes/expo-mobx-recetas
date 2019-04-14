@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import NavBar from '../components/NavBar';
+import TabBar from '../components/TabBar';
 import RecipeRow from '../components/RecipeRow';
 import styles from './Styles/ExploreScreenStyles';
 
@@ -54,6 +55,7 @@ class ExploreScreen extends React.Component {
       <View style={[styles.mainScreen]}>
         <NavBar title="Explore" />
         <View style={styles.container}>{this.renderRecipeList()}</View>
+        <TabBar selected="explore" />
       </View>
     );
   }

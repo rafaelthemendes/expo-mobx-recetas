@@ -6,7 +6,7 @@ export default StyleSheet.create({
   ...AppStyles.screen,
   container: {
     flex: 1,
-    margin: 10,
+    margin: Metrics.smallSpace,
     justifyContent: 'flex-start',
     alignItems: 'stretch',
     backgroundColor: Colors.mainBackground
