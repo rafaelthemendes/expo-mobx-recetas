@@ -11,6 +11,14 @@ export default StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: Metrics.statusBarHeight
   },
+  transparent: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+    backgroundColor: 'transparent'
+  },
   alternate: {
     color: Colors.whiteFull
   },

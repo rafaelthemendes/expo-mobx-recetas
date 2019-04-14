@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import styles from './Styles/NavBarStyles';
 import Icon from './Icon';
 
@@ -19,11 +20,22 @@ class NavBar extends React.Component {
     }
   };
 
+  onBackPress = () => {
+    const { onBackPress, navigation } = this.props;
+    // Used to override the back button behavior
+    if (onBackPress) {
+      return onBackPress();
+    }
+    navigation.goBack();
+  };
+
   render() {
-    const { title } = this.props;
+    const { title, transparent } = this.props;
     return (
-      <View style={styles.wrapper}>
-        <View style={styles.leftContainer}>{this.backButton()}</View>
+      <View style={[styles.wrapper, transparent ? styles.transparent : null]}>
+        <TouchableOpacity onPress={this.onBackPress}>
+          <View style={styles.leftContainer}>{this.backButton()}</View>
+        </TouchableOpacity>
         <View style={styles.titleWrapper}>
           <Text style={[styles.title, styles.alternate]}>{title}</Text>
         </View>
@@ -35,4 +47,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default withNavigation(NavBar);
