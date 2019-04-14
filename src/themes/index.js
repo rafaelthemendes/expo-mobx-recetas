@@ -1,5 +1,6 @@
+import AppStyles from './AppStyles';
 import Colors from './Colors';
 import Metrics from './Metrics';
 import Fonts from './Fonts';
 
-export { Colors, Metrics, Fonts };
+export { Colors, Metrics, Fonts, AppStyles };
