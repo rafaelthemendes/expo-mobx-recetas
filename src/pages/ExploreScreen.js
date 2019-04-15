@@ -4,6 +4,7 @@ import { withNavigation } from 'react-navigation';
 import NavBar from '../components/NavBar';
 import TabBar from '../components/TabBar';
 import RecipeRow from '../components/RecipeRow';
+import FeaturedRecipesBox from '../components/FeaturedRecipesBox';
 import styles from './Styles/ExploreScreenStyles';
 
 const recipeData = [
@@ -59,9 +60,14 @@ class ExploreScreen extends React.Component {
     this.props.navigation.navigate('RecipeDetails', { recipe });
   };
 
+  renderFeaturedRecipeList = () => {
+    return <FeaturedRecipesBox data={recipeData} />;
+  };
+
   renderRecipeList() {
     return (
       <FlatList
+        ListHeaderComponent={this.renderFeaturedRecipeList}
         keyExtractor={item => item.id}
         data={recipeData}
         renderItem={({ item }) => <RecipeRow onPress={this.onRecipeSelected} data={item} />}

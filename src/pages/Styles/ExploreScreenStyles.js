@@ -6,17 +6,10 @@ export default StyleSheet.create({
   ...AppStyles.screen,
   container: {
     flex: 1,
-    margin: Metrics.smallSpace,
+    marginTop: Metrics.smallSpace,
     justifyContent: 'flex-start',
     alignItems: 'stretch',
     backgroundColor: Colors.mainBackground
-  },
-  navBar: {
-    marginTop: Metrics.statusBarHeight,
-    height: Metrics.navBarHeight,
-    backgroundColor: Colors.whiteFull,
-    alignItems: 'center',
-    justifyContent: 'center'
   },
   title: {
     ...Fonts.family.recipeNameCard,

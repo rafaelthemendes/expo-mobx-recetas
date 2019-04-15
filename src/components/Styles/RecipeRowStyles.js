@@ -3,6 +3,7 @@ import { Metrics, Colors, Fonts } from '../../themes';
 
 export default StyleSheet.create({
   container: {
+    marginHorizontal: Metrics.smallSpace,
     marginBottom: Metrics.baseSpace,
     justifyContent: 'flex-start',
     alignItems: 'stretch'
