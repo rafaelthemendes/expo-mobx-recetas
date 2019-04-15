@@ -62,6 +62,7 @@ class FavoritesScreen extends React.Component {
   renderFavoritesRecipeList() {
     return (
       <FlatList
+        showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id}
         data={recipeData}
         renderItem={({ item }) => <RecipeRow onPress={this.onRecipeSelected} data={item} />}

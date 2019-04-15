@@ -68,6 +68,7 @@ class ExploreScreen extends React.Component {
   renderRecipeList() {
     return (
       <FlatList
+        showsVerticalScrollIndicator={false}
         ListHeaderComponent={this.renderFeaturedRecipeList}
         keyExtractor={item => item.id}
         data={recipeData}
