@@ -1,11 +1,11 @@
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import { GenericScreen, ExploreScreen, CategoriesScreen, RecipeDetailsScreen } from '../pages';
+import { FavoritesScreen, ExploreScreen, CategoriesScreen, CategoryScreen, RecipeDetailsScreen } from '../pages';
 
 const TabNavigator = createBottomTabNavigator(
   {
     Categories: { screen: CategoriesScreen },
     Explore: { screen: ExploreScreen },
-    Favorites: { screen: GenericScreen }
+    Favorites: { screen: FavoritesScreen }
   },
   {
     initialRouteName: 'Explore',
@@ -18,7 +18,8 @@ const TabNavigator = createBottomTabNavigator(
 const AppNavigator = createStackNavigator(
   {
     Home: { screen: TabNavigator },
-    RecipeDetails: { screen: RecipeDetailsScreen }
+    RecipeDetails: { screen: RecipeDetailsScreen },
+    Category: { screen: CategoryScreen }
   },
   { headerMode: 'none' }
 );

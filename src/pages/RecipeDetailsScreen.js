@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, ScrollView, StatusBar } from 'react-native';
+import { Text, View, ScrollView } from 'react-native';
 import NavBar from '../components/NavBar';
 import Icon from '../components/Icon';
 import ImageFadeIn from '../components/ImageFadeIn';
@@ -11,7 +11,8 @@ class RecipeDetails extends React.Component {
   };
 
   onPressFavorite = () => {
-    this.setState({ favorite: !this.state.favorite });
+    const { favorite } = this.state;
+    this.setState({ favorite: !favorite });
   };
 
   renderImage = data => {
@@ -31,7 +32,7 @@ class RecipeDetails extends React.Component {
         <View style={styles.properties}>
           <View style={styles.cell}>
             <Icon name="duration" style={styles.cellIcon} />
-            <Text style={styles.cellText}>{data.duration} Minutos</Text>
+            <Text style={styles.cellText}>{`${data.duration} Minutos`}</Text>
           </View>
           <View style={styles.cell}>
             <Icon name="difficulty" style={styles.cellIcon} />
@@ -39,7 +40,7 @@ class RecipeDetails extends React.Component {
           </View>
           <View style={styles.cell}>
             <Icon name="recipes" style={styles.cellIcon} />
-            <Text style={styles.cellText}>{data.people} Personas</Text>
+            <Text style={styles.cellText}>{`${data.people} Personas`}</Text>
           </View>
         </View>
       </View>
@@ -55,6 +56,7 @@ class RecipeDetails extends React.Component {
         </View>
       );
     }
+    return null;
   };
 
   renderInstructions = data => {
@@ -66,6 +68,7 @@ class RecipeDetails extends React.Component {
         </View>
       );
     }
+    return null;
   };
 
   renderContent(data) {
@@ -80,16 +83,12 @@ class RecipeDetails extends React.Component {
   }
 
   render() {
-    const recipe = this.props.navigation.getParam('recipe', {});
+    const { favorite } = this.state;
+    const { navigation } = this.props;
+    const recipe = navigation.getParam('recipe', {});
     return (
       <View style={styles.mainScreen}>
-        <NavBar
-          transparent
-          backButton
-          rightButton
-          favorite={this.state.favorite}
-          onPressFavorite={this.onPressFavorite}
-        />
+        <NavBar transparent backButton rightButton favorite={favorite} onPressFavorite={this.onPressFavorite} />
         <View style={styles.container}>{this.renderContent(recipe)}</View>
       </View>
     );

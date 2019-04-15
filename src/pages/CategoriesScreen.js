@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import NavBar from '../components/NavBar';
 import TabBar from '../components/TabBar';
 import styles from './Styles/CategoriesScreenStyles';
@@ -23,19 +24,26 @@ const categoriesList = [
   }
 ];
 class CategoriesScreen extends React.Component {
-  renderCategoriesList() {
+  onPressCategory = category => {
+    const { navigation } = this.props;
+    navigation.navigate('Category', { category });
+  };
+
+  renderCategoriesList = () => {
     return (
       <FlatList
         keyExtractor={item => item.id}
         data={categoriesList}
         renderItem={({ item }) => (
-          <View style={styles.categoryRow}>
-            <Text style={styles.categoryText}>{item.name}</Text>
-          </View>
+          <TouchableOpacity onPress={() => this.onPressCategory(item)}>
+            <View style={styles.categoryRow}>
+              <Text style={styles.categoryText}>{item.name}</Text>
+            </View>
+          </TouchableOpacity>
         )}
       />
     );
-  }
+  };
 
   render() {
     return (
@@ -48,4 +56,4 @@ class CategoriesScreen extends React.Component {
   }
 }
 
-export default CategoriesScreen;
+export default withNavigation(CategoriesScreen);
