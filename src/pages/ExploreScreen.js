@@ -57,7 +57,8 @@ const recipeData = [
 
 class ExploreScreen extends React.Component {
   onRecipeSelected = recipe => {
-    this.props.navigation.navigate('RecipeDetails', { recipe });
+    const { navigation } = this.props;
+    navigation.navigate('RecipeDetails', { recipe });
   };
 
   renderFeaturedRecipeList = () => {
@@ -74,6 +75,7 @@ class ExploreScreen extends React.Component {
       />
     );
   }
+
   render() {
     return (
       <View style={[styles.mainScreen]}>

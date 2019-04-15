@@ -8,7 +8,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    justifyContent: 'flex-start',
     paddingTop: Metrics.statusBarHeight
   },
   transparent: {
