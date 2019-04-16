@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import { observer, inject } from 'mobx-react/native';
 import NavBar from '../components/NavBar';
 import TabBar from '../components/TabBar';
 import RecipeRow from '../components/RecipeRow';
@@ -55,7 +56,21 @@ const recipeData = [
   }
 ];
 
+@inject('test')
+@observer
 class ExploreScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    props.test.start();
+  }
+
+  componentDidUpdate() {
+    const { test } = this.props;
+    if (test.value >= 5) {
+      test.stop();
+    }
+  }
+
   onRecipeSelected = recipe => {
     const { navigation } = this.props;
     navigation.navigate('RecipeDetails', { recipe });
@@ -78,9 +93,10 @@ class ExploreScreen extends React.Component {
   }
 
   render() {
+    const { test } = this.props;
     return (
       <View style={[styles.mainScreen]}>
-        <NavBar title="Explore" />
+        <NavBar title={`Explore - ${test.value}`} />
         <View style={styles.container}>{this.renderRecipeList()}</View>
         <TabBar selected="explore" />
       </View>

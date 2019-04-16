@@ -1,8 +1,12 @@
 import React from 'react';
+import { Provider } from 'mobx-react/native';
+import stores from './mobx';
 import AppNavigator from './routes/AppNavigator';
 
-export default class App extends React.Component {
-  render() {
-    return <AppNavigator />;
-  }
-}
+const App = () => (
+  <Provider {...stores}>
+    <AppNavigator />
+  </Provider>
+);
+
+export default App;

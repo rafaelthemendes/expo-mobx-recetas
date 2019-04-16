@@ -18,7 +18,8 @@ class AppContainer extends React.Component {
   }
 
   render() {
-    if (!this.state.fontLoaded) return null;
+    const { fontLoaded } = this.state;
+    if (!fontLoaded) return null;
     return <App />;
   }
 }

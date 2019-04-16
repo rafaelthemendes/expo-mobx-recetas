@@ -18,6 +18,7 @@
     "max-len": ["error", 120, { "ignoreUrls": true, "ignoreStrings": true }],
     "no-param-reassign": "error",
     "max-params": ["error", 5],
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "global-require": "off"
   }
 }
